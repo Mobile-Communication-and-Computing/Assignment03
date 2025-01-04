@@ -3,7 +3,7 @@ import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { Button, Divider, Icon, Text } from "react-native-paper";
 
 export default function Home({ route }) {
-  const { user } = route.params;
+  const { user } = route.params; 
   return (
     <>
       <ScrollView>
@@ -37,9 +37,7 @@ export default function Home({ route }) {
           </View>
         </View>
       </ScrollView>
-      <View>
-        <Button><Icon source={Profile}/>Profile</Button>
-      </View>
+      
     </>
   );
 }
@@ -65,11 +63,11 @@ const style = StyleSheet.create({
     padding: 20,
     elevation: 3,
   },
-  profileSectionStyle:{
-    margin:20,
+  profileSectionStyle: {
+    margin: 20,
   },
-  profileInnerContainerStyle:{
+  profileInnerContainerStyle: {
     alignItems: "center",
-    margin:20,
-  }
+    margin: 20,
+  },
 });
