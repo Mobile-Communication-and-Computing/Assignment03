@@ -28,7 +28,7 @@ const App = () => {
             <Stack.Screen
               name="BottomTab"
               component={BottomTab}
-              options={{ headerShown: false }}
+              options={{ headerShown: true, title:"UoV Student Care"}}
             />
             
           </Stack.Navigator>

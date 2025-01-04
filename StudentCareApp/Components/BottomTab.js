@@ -30,16 +30,7 @@ export default function BottomTab({ route }) {
         tabBarInactiveTintColor: "gray",
       })}
     >
-      <Tab.Screen
-        name="Profile"
-        initialParams={{ user }}
-        component={Profile}
-        screenOptions={{
-          headerStyle: { backgroundColor: "#70116d" },
-          headerTitleStyle: { color: "#fff" },
-          headerTitleAlign: "center",
-        }}
-      />
+      <Tab.Screen name="Profile" initialParams={{ user }} component={Profile} options={{headerShown: false}}/>
       <Tab.Screen name="Course" component={Course} />
       <Tab.Screen name="Subjects" component={Subjects} />
     </Tab.Navigator>
