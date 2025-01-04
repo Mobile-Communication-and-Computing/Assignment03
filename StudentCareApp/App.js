@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { PaperProvider } from 'react-native-paper';
+import Login from './Components/Login';
 
-export default function App() {
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <PaperProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: "#70116d" },
+            headerTitleStyle: { color: "#fff" },
+            headerTitleAlign: "center",
+          }}>
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{ title:"UoV Student Care" }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
+    </SafeAreaProvider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
