@@ -1,12 +1,29 @@
 import { useState } from "react";
 import { Image, View, StyleSheet, Alert } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
+import { students } from "../assets/Data/StudentsDb";
+import Home from "./Home";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigation = useNavigation();
 
-  
+  const handleLogin = () => {
+    const user = students.find(
+      (student) => student.username == username && student.password == password
+    );
+
+    if (username == "" || password == "") {
+      Alert.alert("Please fill out all fields.");
+    } else if(user){
+      navigation.navigate('Home',{user})
+    }
+    else{
+      Alert.alert("User not found.");
+    }
+  };
   return (
     <>
       <View style={style.containerStyle}>
@@ -34,7 +51,9 @@ export default function Login() {
           right={<TextInput.Icon icon="eye" />}
         />
         <View style={style.buttonStyle}>
-            <Button mode="contained" buttonColor="#70116d" onPress={handleLogin}>Login</Button>
+          <Button mode="contained" buttonColor="#70116d" onPress={handleLogin}>
+            Login
+          </Button>
         </View>
       </View>
     </>
@@ -53,10 +72,10 @@ const style = StyleSheet.create({
   headingStyle: {
     alignItems: "center",
   },
-  formStyle:{
-    margin:20,
+  formStyle: {
+    margin: 20,
   },
-  buttonStyle:{
-    marginTop:10,
+  buttonStyle: {
+    marginTop: 10,
   },
 });
