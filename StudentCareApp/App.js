@@ -3,7 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { PaperProvider } from 'react-native-paper';
 import Login from './Components/Login';
-import Home from './Components/Home';
+import Profile from './Components/Profile';
+import BottomTab from './Components/BottomTab';
 
 const Stack = createStackNavigator();
 
@@ -17,17 +18,19 @@ const App = () => {
             headerStyle: { backgroundColor: "#70116d" },
             headerTitleStyle: { color: "#fff" },
             headerTitleAlign: "center",
-          }}>
+          }}
+          initialRouteName="Login">
             <Stack.Screen
               name="Login"
               component={Login}
               options={{ title:"UoV Student Care" }}
             />
             <Stack.Screen
-              name="Home"
-              component={Home}
-              options={{ title:"UoV Student Care" }}
+              name="BottomTab"
+              component={BottomTab}
+              options={{ headerShown: false }}
             />
+            
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>

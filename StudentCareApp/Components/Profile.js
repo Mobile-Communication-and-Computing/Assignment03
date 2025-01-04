@@ -1,8 +1,8 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
-import { Button, Divider, Icon, Text } from "react-native-paper";
+import { Divider, Text } from "react-native-paper";
 
-export default function Home({ route }) {
+export default function Profile({ route }) {
   const { user } = route.params; 
   return (
     <>

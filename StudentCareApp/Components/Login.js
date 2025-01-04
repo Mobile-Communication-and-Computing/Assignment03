@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Image, View, StyleSheet, Alert, ScrollView } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
 import { students } from "../assets/Data/StudentsDb";
-import Home from "./Home";
 import { useNavigation } from "@react-navigation/native";
+import Profile from "./Profile";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -18,7 +18,7 @@ export default function Login() {
     if (username == "" || password == "") {
       Alert.alert("Please fill out all fields.");
     } else if (user) {
-      navigation.navigate("Home", { user });
+      navigation.navigate("BottomTab", { user });
     } else {
       Alert.alert("User not found.");
     }
