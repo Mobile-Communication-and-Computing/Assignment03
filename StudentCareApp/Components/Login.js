@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Image, View, StyleSheet, Alert } from "react-native";
+import { Image, View, StyleSheet, Alert, ScrollView } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
 import { students } from "../assets/Data/StudentsDb";
 import Home from "./Home";
@@ -17,45 +17,50 @@ export default function Login() {
 
     if (username == "" || password == "") {
       Alert.alert("Please fill out all fields.");
-    } else if(user){
-      navigation.navigate('Home',{user})
-    }
-    else{
+    } else if (user) {
+      navigation.navigate("Home", { user });
+    } else {
       Alert.alert("User not found.");
     }
   };
   return (
     <>
-      <View style={style.containerStyle}>
-        <Image
-          source={require("../assets/logo.png")}
-          style={style.imageStyle}
-        />
-      </View>
-      <View style={style.headingStyle}>
-        <Text variant="displayMedium">Student Login</Text>
-      </View>
-      <View style={style.formStyle}>
-        <TextInput
-          mode="outlined"
-          label="Username"
-          value={username}
-          onChangeText={setUsername}
-        />
-        <TextInput
-          mode="outlined"
-          label="Password"
-          secureTextEntry={true}
-          value={password}
-          onChangeText={setPassword}
-          right={<TextInput.Icon icon="eye" />}
-        />
-        <View style={style.buttonStyle}>
-          <Button mode="contained" buttonColor="#70116d" onPress={handleLogin}>
-            Login
-          </Button>
+      <ScrollView keyboardShouldPersistTaps='handled'>
+        <View style={style.containerStyle}>
+          <Image
+            source={require("../assets/logo.png")}
+            style={style.imageStyle}
+          />
         </View>
-      </View>
+        <View style={style.headingStyle}>
+          <Text variant="displayMedium">Student Login</Text>
+        </View>
+        <View style={style.formStyle}>
+          <TextInput
+            mode="outlined"
+            label="Username"
+            value={username}
+            onChangeText={setUsername}
+          />
+          <TextInput
+            mode="outlined"
+            label="Password"
+            secureTextEntry={true}
+            value={password}
+            onChangeText={setPassword}
+            right={<TextInput.Icon icon="eye" />}
+          />
+          <View style={style.buttonStyle}>
+            <Button
+              mode="contained"
+              buttonColor="#70116d"
+              onPress={handleLogin}
+            >
+              Login
+            </Button>
+          </View>
+        </View>
+      </ScrollView>
     </>
   );
 }
