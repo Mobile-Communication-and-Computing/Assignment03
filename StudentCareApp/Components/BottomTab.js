@@ -31,8 +31,8 @@ export default function BottomTab({ route }) {
       })}
     >
       <Tab.Screen name="Profile" initialParams={{ user }} component={Profile} options={{headerShown: false}}/>
-      <Tab.Screen name="Course" component={Course} />
-      <Tab.Screen name="Subjects" component={Subjects} />
+      <Tab.Screen name="Course" initialParams={{ user }} component={Course} options={{headerShown: false}}/>
+      <Tab.Screen name="Subjects" initialParams={{ user }} component={Subjects} options={{headerShown: false}}/>
     </Tab.Navigator>
   );
 }
