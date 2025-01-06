@@ -36,6 +36,9 @@ export default function Profile({ route }) {
             <Text variant="titleSmall">Bllod Group: {user.blood_group}</Text>
           </View>
         </View>
+        <View style={style.footer}>
+          <Text style={style.footerText}>UOV © 2024</Text>
+        </View>
       </ScrollView>
       
     </>
@@ -69,5 +72,17 @@ const style = StyleSheet.create({
   profileInnerContainerStyle: {
     alignItems: "center",
     margin: 20,
+  },
+  footer: {
+    backgroundColor: "#70116d",
+    marginHorizontal: 15,
+    marginTop: 15,
+    paddingVertical: 8,
+    marginBottom: 10,
+  },
+  footerText: {
+    fontSize: 15,
+    textAlign: "center",
+    color: "#fff",
   },
 });

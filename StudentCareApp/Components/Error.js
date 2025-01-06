@@ -16,7 +16,7 @@ const Error = ({ text }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 380,
+    width: 350,
     display: "flex",
     flexDirection: "row",
     justifyContent: "start",

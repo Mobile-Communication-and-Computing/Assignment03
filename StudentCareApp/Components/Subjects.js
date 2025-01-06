@@ -61,6 +61,9 @@ export default function Subjects({ route }) {
             })}
           </View>
         </View>
+        <View style={style.footer}>
+          <Text style={style.footerText}>UOV © 2024</Text>
+        </View>
       </ScrollView>
     </>
   );
@@ -103,6 +106,18 @@ const style = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingVertical: 10,
-    color:'#BCCCDC',
+    color: "#BCCCDC",
+  },
+  footer: {
+    backgroundColor: "#70116d",
+    marginHorizontal: 15,
+    marginTop: 15,
+    paddingVertical: 8,
+    marginBottom: 10,
+  },
+  footerText: {
+    fontSize: 15,
+    textAlign: "center",
+    color: "#fff",
   },
 });

@@ -3,11 +3,12 @@ import { Image, View, StyleSheet, Alert, ScrollView } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
 import { students } from "../assets/Data/StudentsDb";
 import { useNavigation } from "@react-navigation/native";
-import Profile from "./Profile";
+import Error from "./Error";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   const navigation = useNavigation();
 
   const handleLogin = () => {
@@ -16,16 +17,17 @@ export default function Login() {
     );
 
     if (username == "" || password == "") {
-      Alert.alert("Please fill out all fields.");
+      setError(true);
     } else if (user) {
       navigation.navigate("BottomTab", { user });
+      setError(false);
     } else {
-      Alert.alert("User not found.");
+      setError(true);
     }
   };
   return (
     <>
-      <ScrollView keyboardShouldPersistTaps='handled'>
+      <ScrollView keyboardShouldPersistTaps="handled">
         <View style={style.containerStyle}>
           <Image
             source={require("../assets/logo.png")}
@@ -58,6 +60,11 @@ export default function Login() {
             >
               Login
             </Button>
+            {error ? (
+              <Error text="Please check your username and password" />
+            ) : (
+              <></>
+            )}
           </View>
         </View>
       </ScrollView>

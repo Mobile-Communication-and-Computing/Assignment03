@@ -30,6 +30,9 @@ export default function Course({ route }) {
             <Text variant="bodyLarge">Description: {course.description}</Text>
           </View>
         </View>
+        <View style={style.footer}>
+          <Text style={style.footerText}>UOV © 2024</Text>
+        </View>
       </ScrollView>
     </>
   );
@@ -62,5 +65,17 @@ const style = StyleSheet.create({
   courseInnerContainerStyle: {
     alignItems: "center",
     margin: 20,
+  },
+  footer: {
+    backgroundColor: "#70116d",
+    marginHorizontal: 15,
+    marginTop: 15,
+    paddingVertical: 8,
+    marginBottom: 10,
+  },
+  footerText: {
+    fontSize: 15,
+    textAlign: "center",
+    color: "#fff",
   },
 });
